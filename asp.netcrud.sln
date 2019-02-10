@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp.netcrud", "asp.netcrud\asp.netcrud.csproj", "{C81F2911-A8D5-40E2-8C65-70132990F864}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C81F2911-A8D5-40E2-8C65-70132990F864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81F2911-A8D5-40E2-8C65-70132990F864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C81F2911-A8D5-40E2-8C65-70132990F864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81F2911-A8D5-40E2-8C65-70132990F864}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C556788-BB39-4222-9A24-4DF1B8B82D68}
+	EndGlobalSection
+EndGlobal
