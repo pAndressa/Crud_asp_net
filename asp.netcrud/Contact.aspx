@@ -71,7 +71,7 @@
                     <asp:BoundField DataField ="Address" HeaderText ="Address" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:LinkButton ID="lnkView" runat="server" CommandArgument ='<%# Eval("ContactID") %>'>View</asp:LinkButton>
+                            <asp:LinkButton ID="lnkView" runat="server" CommandArgument ='<%# Eval("ContactID") %>' OnClick ="lnk_OnClick">View</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

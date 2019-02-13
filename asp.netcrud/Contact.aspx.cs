@@ -17,6 +17,7 @@ namespace asp.netcrud
             if (!IsPostBack)
             {
                 btnDelete.Enabled = false;
+                filterGridView();
             }
         }
 
@@ -52,8 +53,39 @@ namespace asp.netcrud
                 lblSuccessMessage.Text = "Salvo com sucesso";
             }else
             {
-                lblErrorMessage.Text = "Ocorreu um erro ao salvar";
+                lblSuccessMessage.Text = "Dados atualizados";
+                filterGridView();
             }
         }
+        void filterGridView()
+        {
+            if(sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+                SqlDataAdapter sqlData = new SqlDataAdapter("ContactViewAll",sqlCon);
+                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                sqlData.Fill(dt);
+                sqlCon.Close();
+                gvContact.DataSource = dt;
+                gvContact.DataBind();
+            }
+        }
+        protected void lnk_OnClick(object sender,EventArgs e)
+        {
+            int contactID = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+                SqlDataAdapter sqlData = new SqlDataAdapter("ContactViewByID", sqlCon);
+                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                sqlData.SelectCommand.Parameters.AddWithValue("@ContactID",contactID);
+                DataTable dt = new DataTable();
+                sqlData.Fill(dt);
+                sqlCon.Close();
+                hfContactID.Value = contactID.ToString();
+                txtName.Text = dt.Rows[0]["Name"].ToString();
+            }
+            }
     }
 }
