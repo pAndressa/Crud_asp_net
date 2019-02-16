@@ -41,7 +41,7 @@
                     </td>
                     <td colspan ="2">
                         <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
-                        <asp:Button ID="btnDelete" runat="server" Text="Delete" />
+                        <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
                         <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
                     </td>
                     
@@ -64,7 +64,7 @@
                 </tr>
             </table>
             <br />
-            <asp:GridView ID="gvContact" runat="server">
+            <asp:GridView ID="gvContact" runat="server" AutoGenerateColumns ="false">
                 <Columns>
                     <asp:BoundField DataField ="Name" HeaderText ="Name" />
                     <asp:BoundField DataField ="Mobile" HeaderText ="Mobile" />

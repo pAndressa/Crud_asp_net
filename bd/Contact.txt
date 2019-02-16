@@ -1,0 +1,5 @@
+CREATE TABLE [dbo].[Contact](
+	[ContactID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NULL,
+	[Mobile] [varchar](50) NULL,
+	[Address] [varchar](250) NULL)

@@ -47,8 +47,9 @@ namespace asp.netcrud
             sqlCmd.Parameters.AddWithValue("@Address",txtAddress.Text.Trim());
             sqlCmd.ExecuteNonQuery();
             sqlCon.Close();
+            string contactID = hfContactID.Value;
             Clear();
-            if(hfContactID.Value=="")
+            if(contactID =="")
             {
                 lblSuccessMessage.Text = "Salvo com sucesso";
             }else
@@ -85,7 +86,27 @@ namespace asp.netcrud
                 sqlCon.Close();
                 hfContactID.Value = contactID.ToString();
                 txtName.Text = dt.Rows[0]["Name"].ToString();
+                txtMobile.Text = dt.Rows[0]["Mobile"].ToString();
+                txtAddress.Text = dt.Rows[0]["Address"].ToString();
+                btnSave.Text = "Update";
+                btnDelete.Enabled = true;
             }
             }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (sqlCon.State == ConnectionState.Closed)
+            {
+                sqlCon.Open();
+                SqlCommand slqCmd = new SqlCommand("ContactDeleteByID", sqlCon);
+                slqCmd.CommandType = CommandType.StoredProcedure;
+                slqCmd.Parameters.AddWithValue("@contactID", Convert.ToInt32(hfContactID.Value));
+                slqCmd.ExecuteNonQuery();
+                sqlCon.Close();
+                Clear();
+                filterGridView();
+                lblSuccessMessage.Text = "Deletado com sucesso!";
+            }
+        }
     }
 }
